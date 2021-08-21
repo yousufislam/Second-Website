@@ -200,6 +200,7 @@ ul .submenu {
     transform-origin: top;
     visibility: hidden;
     transition: .3s;
+    cursor: pointer;
 }
 
 .menu ul li:hover ul.submenu {
@@ -285,7 +286,6 @@ ul .submenu li:hover a:before {
     margin-top: 30px;
     /* margin-bottom: 500px; */
     background-color: #EE5A24;
-    border: none;
     color: white;
     font-weight: 700;
     font-size: 17px;
@@ -293,9 +293,9 @@ ul .submenu li:hover a:before {
     height: 50px;
     width: 220px;
     border-radius: 10px;
-    transition: 0.2s ease-out;
+    transition: 0.20s ease-out;
     border: 2px solid white;
-    /* transform: color(scaleX(0));
+    /* transform: scaleX(0);
     transform-origin: left;
     transition: .15s; */
 }
@@ -304,25 +304,28 @@ ul .submenu li:hover a:before {
     box-shadow: 0 0px 15px rgba(0, 0, 0, 0.445);
     color: rgb(20, 20, 20);
     border: none;
-    transform: color (scaleX(1));
 }
 
-/* .slidercontant button:after {
+.slidercontant button::before {
     content: "";
-    bottom: 100px;   
-    height: 50px;
-    width: 220px;
+    bottom: 0;   
+    height: 100%;
+    width: 0;
     position: absolute;
     background-color: #ffffff;
     transition: .3s;
     transform: scaleX(0);
     transform-origin: left;
+
+    /* background-color: #0cf;
+    transform: scaleX(0);
+    transform-origin: left;
+    left: 0px; */
 }
 
-.slidercontant button:hover .slidercontant button:after {
+.slidercontant button:hover button::before {
     transform: scaleX(1);
-    visibility: visible;
-} */
+}
 
 /* services area */
 #services {
