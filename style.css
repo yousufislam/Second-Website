@@ -16,7 +16,7 @@ body {
 
 .bar {
     background-color: rgb(241, 241, 241);
-    width: cover;
+    width: 100%;
     height: 30px;
 }
 
@@ -99,14 +99,26 @@ body {
 }
 
 /* bar 2 */
-.bar2 {
-    /* background-color: rgb(255, 255, 255); */
-    width: cover;
+.navbar {
+    width: 100%;
     height: 40px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.356);
-    position: sticky;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.404);
+    display: flex;
+    /* position: sticky;
     top: 0px;
+    z-index: 0; */
 }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* body.fixed-nav nav#bar2 { fixed nav bar with js
+    position: fixed;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+} */
 
 .logo {
     font-weight: bold;
@@ -116,12 +128,12 @@ body {
     margin-top: -3px;
     cursor: pointer;
 }
+
 #B {
     color: #EE5A24;
 }
 
 .menu {
-    /* border: 1px solid black; */
     height: 38px;
     width: 531px;
     float: right;
@@ -234,9 +246,7 @@ ul .submenu li:hover a:before {
 }
 
 /* home slider */
-
 #homesliderarea {
-    border: 1px solid black;
     width: cover;
     height: 450px;
 }
@@ -252,7 +262,6 @@ ul .submenu li:hover a:before {
 .container {
     width: 1000px;
     margin: auto;
-    /* border: 1px solid black; */
 }
 
 .slidercontant {
@@ -284,52 +293,31 @@ ul .submenu li:hover a:before {
     float: left;
     cursor: pointer;
     margin-top: 30px;
-    /* margin-bottom: 500px; */
-    background-color: #EE5A24;
-    color: white;
+    background-color: transparent;
+    color: black;
     font-weight: 700;
     font-size: 17px;
     text-transform: uppercase;
     height: 50px;
     width: 220px;
     border-radius: 10px;
-    transition: 0.20s ease-out;
-    border: 2px solid white;
-    /* transform: scaleX(0);
-    transform-origin: left;
-    transition: .15s; */
+    border: 3px solid #EE5A24;
+    position: relative; /*animation start*/
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 0% 100%;
+    background-image: linear-gradient(#EE5A24, #EE5A24);
+    transition: background-size .30s, color 0.30s ease-out;
 }
 
 .slidercontant button:hover {
     box-shadow: 0 0px 15px rgba(0, 0, 0, 0.445);
-    color: rgb(20, 20, 20);
-    border: none;
-}
-
-.slidercontant button::before {
-    content: "";
-    bottom: 0;   
-    height: 100%;
-    width: 0;
-    position: absolute;
-    background-color: #ffffff;
-    transition: .3s;
-    transform: scaleX(0);
-    transform-origin: left;
-
-    /* background-color: #0cf;
-    transform: scaleX(0);
-    transform-origin: left;
-    left: 0px; */
-}
-
-.slidercontant button:hover button::before {
-    transform: scaleX(1);
+    color: rgb(255, 255, 255);
+    background-size: 100% 100%;
 }
 
 /* services area */
 #services {
-    /* border: 1px solid black; */
     width: cover;
     height: 500px;
     padding: 70px 0px;
@@ -353,14 +341,18 @@ ul .submenu li:hover a:before {
     float: left;
     margin-right: 20px;
     text-align: center;
-    transition: 0.3s;
+    position: relative; /*animation start*/
+    background-repeat: no-repeat;
+    background-size: 100% 0%;
+    background-image: linear-gradient(#EE5A24, #EE5A24);
+    transition: background-size .30s, color 0.30s;
 }
 
 .singlebox:hover {
-    background-color: #EE5A24;
     color: white;
     cursor: pointer;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.486);
+    background-size: 100% 100%;
 }
 
 .singlebox:hover .singleboxicon {
@@ -452,7 +444,6 @@ ul .submenu li:hover a:before {
 }
 
 /* work area */
-
 #work {
     width: cover;
     height: 320px;
@@ -512,19 +503,25 @@ ul .submenu li:hover a:before {
 
 .workright a {
     text-decoration: none;
-    background-color: #EE5A24;
-    border-radius: 5px;
+    border: 2px solid #EE5A24;
+    border-radius: 10px;
     font-size: 16px;
     padding: 10px 20px;
-    color: white;
+    color: #EE5A24;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    transition: 0.2s;
+    position: relative; /*animation start*/
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 0%;
+    background-image: linear-gradient(#EE5A24, #EE5A24);
+    transition: background-size .15s, color .15s;
 }
 
 .workright a:hover {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.37);
+    background-size: 100% 100%;
+    color: white;
 }
 
 /* view area */
@@ -572,8 +569,8 @@ ul .submenu li:hover a:before {
 /* part 5 */
 #part5 {
     width: cover;
-    height: 510px;
-    padding: 70px 0px;
+    height: 375px;
+    padding: 40px 0px;
 }
 
 .part5_heading h2{
@@ -592,9 +589,8 @@ ul .submenu li:hover a:before {
 
 .part5_box {
     width: 240px;
-    height: 360px;
+    height: 240px;
     float: left;
-    text-align: left;
     margin-right: 10px;
     margin-top: 50px;
     cursor: pointer;
@@ -603,8 +599,7 @@ ul .submenu li:hover a:before {
 }
 
 .part5_box:hover {
-    background-color: #F3F3F3;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.363);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.363);
 }
 
 #part5_box_last {
@@ -612,14 +607,17 @@ ul .submenu li:hover a:before {
     margin-right: 0px;
 }
 
-.part5_box h3{
+.part5_box h3 {
     font-weight:600;
+    text-align: left;
+    margin-bottom: 8px;
     margin-left: 10px;
-    margin-bottom: 10px;
+    color: #EE5A24;
 }
 
 .part5_box p {
-    color: #EE5A24;
+    color: white;
+    text-align: left;
     margin-left: 10px;
 }
 
@@ -632,18 +630,26 @@ ul .submenu li:hover a:before {
 }
 
 .part5_img_box {
-    /* border: 1px solid black; */
     border-radius: 8px;
     width: 240px;
-    height: 80px;
-    /* margin-top: -108px; */
-    background-color: rgba(255, 255, 255, 0.486);
+    height: 85px;
+    margin-top: -102px;
+    background-color: rgba(8, 8, 8, 0.692);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    visibility: hidden;
+    transition: .4s;
+}
+
+.part5_box:hover .part5_img_box {
+    transform: scaleY(1);
+    visibility: visible;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.363);
 }
 
 /* part 6 */
 #part6 {
     padding: 50px;
-    /* border: 1px solid black; */
     height: 700px;
     background-color: #dfdbdbc7;
 }
@@ -699,8 +705,7 @@ ul .submenu li:hover a:before {
 .part6_box button {
     padding: 5px;
     margin-left: 100px;
-    background-color: #EE5A24;
-    border: none;
+    border: 2px solid #EE5A24;
     border-radius: 40px;
     font-size: 15px;
     margin-top: 45px;
@@ -708,10 +713,27 @@ ul .submenu li:hover a:before {
     height: 40px;
     width: 100px;
     cursor: pointer;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-image: linear-gradient(#EE5A24, #EE5A24);
+    transition: background-size 0.3s;
+}
+
+.part6_box button:hover {
+    background-size: 100% 100%;
+}
+
+.part6_box button a {
+    color: black;
+    transition: .3s;
+}
+
+.part6_box button:hover a {
+    color: white;
 }
 
 /* part7 */
-
 #part7 {
     width: 100%;
     height: 400px;
@@ -825,6 +847,12 @@ ul .submenu li:hover a:before {
     position: absolute;
     left: 650px;
     margin-top: 15px;
+}
+
+#part9 iframe {
+    border:7px solid rgb(187, 183, 183);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.356);
+    margin-top: 100px;
 }
 
 /* part10 */
